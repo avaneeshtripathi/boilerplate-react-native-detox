@@ -6,7 +6,9 @@
         "android": "react-native run-android",
         "ios": "react-native run-ios",
         "start": "react-native start",
-        "test": "jest"
+        "build:test": "chmod +x ./preDetoxBuild.sh && ./preDetoxBuild.sh && detox build",
+        "pretty": "prettier --write \"{src,types}/**/*.{ts,tsx,js}\"",
+        "lint": "tslint --project tsconfig.json"
     },
     "dependencies": {
         "react": "16.9.0",
@@ -16,12 +18,14 @@
         "@babel/core": "^7.7.7",
         "@babel/runtime": "^7.7.7",
         "@react-native-community/eslint-config": "^0.0.5",
+        "@types/detox": "^14.5.2",
         "@types/jest": "^24.0.25",
         "@types/react": "^16.9.17",
         "@types/react-native": "^0.60.26",
         "@types/react-test-renderer": "^16.9.1",
         "babel-jest": "^24.9.0",
         "babel-plugin-module-resolver": "^4.0.0",
+        "detox": "^14.9.2",
         "eslint": "^6.8.0",
         "jest": "^24.9.0",
         "metro-react-native-babel-preset": "^0.57.0",
@@ -32,6 +36,19 @@
         "tslint-config-standard": "^9.0.0",
         "tslint-react": "^4.1.0",
         "typescript": "^3.7.4"
+    },
+    "detox": {
+        "configurations": {
+            "android.emu.debug": {
+                "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+                "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+                "type": "android.emulator",
+                "device": {
+                    "avdName": "Nexus_6_API_27"
+                }
+            }
+        },
+        "test-runner": "jest"
     },
     "jest": {
         "preset": "react-native"

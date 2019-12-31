@@ -2,7 +2,7 @@
 
 ###### 1. Initialise React Native and do necessary setup for typescript etc if needed (or consider an already ready app)
 
-`npx react-native init boilerplate-react-native-detox --template react-native-template-typescript`
+`npx react-native init boilerplate-react-native-detox`
 
 ---
 
@@ -40,7 +40,7 @@ Note: Issues that may occur:
    a. Install detox
 
     ```
-    yarn add detox -D
+    yarn add detox @types/detox jest @types/jest -D
     ```
 
     b. Add Detox config to package.json
@@ -83,6 +83,7 @@ Note: Issues that may occur:
     ```
     dependencies {
         // ...
+        implementation "androidx.annotation:annotation:1.1.0"
         androidTestImplementation('com.wix:detox:+') { transitive = true }
         androidTestImplementation 'junit:junit:4.12'
     }
@@ -110,7 +111,7 @@ Note: Issues that may occur:
         // ...
         ext: {
             // ...
-            kotlinVersion: "1.3.0"
+            kotlinVersion = "1.3.10"
         }
 
         dependencies: {
