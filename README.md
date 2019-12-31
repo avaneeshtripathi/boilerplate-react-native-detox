@@ -1,10 +1,20 @@
 # boilerplate-react-native-detox
 
-###### 1. Initialise React Native and do necessary setup for typescript etc if needed (or consider an already ready app)
+###### GETTING STARTED
 
-`npx react-native init boilerplate-react-native-detox`
+1. Clone the repository
+2. `yarn run build:test` (which actually runs `detox build` in package.json)
+3. `detox test`
 
 ---
+
+###### SETUP GUIDE
+
+###### 1. Initialise React Native and do necessary setup for typescript etc if needed (or consider an already ready app)
+
+```
+npx react-native init boilerplateReactNativeDetox
+```
 
 ###### 2. Setup Detox
 
@@ -15,9 +25,15 @@ Note: Issues that may occur:
     export DETOX_DISABLE_POSTINSTALL=true
     ```
 
-1. Install Dependencies
-   a. Install the latest version of Homebrew
-   b. Install Node.js
+1. Install Dependencies:
+
+    a. Install the latest version of Homebrew
+
+    ```
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ```
+
+    b. Install Node.js
 
     ```
     brew update && brew install node
@@ -37,7 +53,8 @@ Note: Issues that may occur:
     ```
 
 2. Add Detox to your project
-   a. Install detox
+
+    a. Install detox
 
     ```
     yarn add detox @types/detox jest @types/jest -D
@@ -121,7 +138,7 @@ Note: Issues that may occur:
     }
     ```
 
-    c. Create Android Test class. Add the file android/app/src/androidTest/java/com/[your.package]/DetoxTest.java and fill as in:
+    c. Create Android Test class. Add the file `android/app/src/androidTest/java/com/[your.package]/DetoxTest.java` and fill as in:
 
     ```
     package com.example;
